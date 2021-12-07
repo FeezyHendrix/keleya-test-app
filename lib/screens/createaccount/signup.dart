@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:keleya/screens/auth_success.dart';
+import 'package:keleya/screens/createaccount/name_collection.dart';
+import 'package:keleya/screens/login.dart';
 import 'package:keleya/utils/colors.dart';
 import 'package:keleya/widgets/button.dart';
 import 'package:keleya/widgets/header.dart';
@@ -22,7 +24,11 @@ class _SignupScreenState extends State<SignupScreen> {
   /// On Sign in Button Click
   /// Navigate to Auth Success Screen
   void onSignupPressed() {
-    Get.toNamed(AuthSuccess.id);
+    Get.toNamed(NameCollectionScreen.id);
+  }
+
+  void gotoLogin() {
+    Get.toNamed(LoginScreen.id);
   }
 
   onPasswordVisibilityChanged() {
@@ -82,63 +88,82 @@ class _SignupScreenState extends State<SignupScreen> {
                         Button(
                             text: 'Create an account',
                             onPressed: onSignupPressed),
-                        Row(children: [
-                          Checkbox(
-                            value: hasAgreedToPrivaryPolicy,
-                            onChanged: (value) => setState(
-                                () => hasAgreedToPrivaryPolicy = value!),
-                            checkColor: Colors.white,
-                            activeColor: kPrimaryColor,
-                            focusColor: kPrimaryColor,
-                          ),
-                          RichText(
-                              text: const TextSpan(
-                            text: "I agree the ",
-                            style: TextStyle(color: Colors.black, fontSize: 16),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
                             children: [
-                              TextSpan(
-                                  text: "privacy policy",
-                                  style: TextStyle(color: kPrimaryColor)),
+                              Row(children: [
+                                Checkbox(
+                                  side: const BorderSide(
+                                      width: 1.0, color: kInputBorderColor),
+                                  value: hasAgreedToPrivaryPolicy,
+                                  onChanged: (value) => setState(
+                                      () => hasAgreedToPrivaryPolicy = value!),
+                                  checkColor: Colors.white,
+                                  activeColor: kPrimaryColor,
+                                  focusColor: kPrimaryColor,
+                                ),
+                                RichText(
+                                    text: const TextSpan(
+                                  text: "I agree the ",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                  children: [
+                                    TextSpan(
+                                        text: "privacy policy",
+                                        style: TextStyle(color: kPrimaryColor)),
+                                  ],
+                                ))
+                              ]),
+                              Row(children: [
+                                Checkbox(
+                                  side: const BorderSide(
+                                      width: 1.0, color: kInputBorderColor),
+                                  value: hasAgreedToTermsandCondition,
+                                  onChanged: (value) => setState(() =>
+                                      hasAgreedToTermsandCondition = value!),
+                                  checkColor: Colors.white,
+                                  activeColor: kPrimaryColor,
+                                  focusColor: kPrimaryColor,
+                                ),
+                                RichText(
+                                    text: const TextSpan(
+                                  text: "I agree the ",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                  children: [
+                                    TextSpan(
+                                        text: "terms & conditions",
+                                        style: TextStyle(color: kPrimaryColor)),
+                                    TextSpan(
+                                        text: " & ",
+                                        style: TextStyle(color: Colors.black)),
+                                    TextSpan(
+                                        text: "keleya's advice",
+                                        style: TextStyle(color: kPrimaryColor)),
+                                  ],
+                                ))
+                              ]),
                             ],
-                          ))
-                        ]),
-                        Row(children: [
-                          Checkbox(
-                            value: hasAgreedToTermsandCondition,
-                            onChanged: (value) => setState(
-                                () => hasAgreedToTermsandCondition = value!),
-                            checkColor: Colors.white,
-                            activeColor: kPrimaryColor,
-                            focusColor: kPrimaryColor,
                           ),
-                          RichText(
-                              text: const TextSpan(
-                            text: "I agree the ",
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                            children: [
-                              TextSpan(
-                                  text: "terms & conditions",
-                                  style: TextStyle(color: kPrimaryColor)),
-                              TextSpan(
-                                  text: "&",
-                                  style: TextStyle(color: Colors.black)),
-                              TextSpan(
-                                  text: "keleya's advice",
-                                  style: TextStyle(color: kPrimaryColor)),
-                            ],
-                          ))
-                        ]),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         GestureDetector(
-                          child: Row(children: const [
-                            Text('Already have an account?',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14)),
-                            Text(
-                              'Sign In',
-                              style:
-                                  TextStyle(color: kPrimaryColor, fontSize: 14),
-                            )
-                          ]),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Text('Already have an account? ',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 16)),
+                                Text(
+                                  'Sign In',
+                                  style: TextStyle(
+                                      color: kPrimaryColor, fontSize: 16),
+                                )
+                              ]),
                         )
                       ],
                     ),

@@ -14,7 +14,8 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.all(25),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.white, fontSize: 34),
+        style: const TextStyle(
+            color: Colors.white, fontSize: 30, fontWeight: FontWeight.w500),
         textAlign: TextAlign.center,
       ),
     );

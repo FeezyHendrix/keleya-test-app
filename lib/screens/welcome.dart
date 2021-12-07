@@ -34,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const Header(text: 'Are you already a Keleya user?'),
+              const Header(text: 'Are you already a \n Keleya user?'),
               const SizedBox(
                 height: 50,
               ),
@@ -63,6 +63,9 @@ class WelcomeScreen extends StatelessWidget {
                         customBackgroundColor: kButtonVariant,
                         useCustomTextColor: true,
                         customTextColor: kButtonTextVariant,
+                      ),
+                      const SizedBox(
+                        height: 60,
                       ),
                     ],
                   ),

@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 40,
               ),
-              const Header(text: 'Great to have you back!'),
+              const Header(text: 'Great to have you \n back!'),
               const SizedBox(
                 height: 25,
               ),
