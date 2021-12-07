@@ -25,7 +25,7 @@ class Button extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: TextButton(
           onPressed: onPressed,
           child: Text(

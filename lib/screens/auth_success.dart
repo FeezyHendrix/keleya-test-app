@@ -10,19 +10,28 @@ class AuthSuccess extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/auth_success_bg.png'),
-                      fit: BoxFit.cover),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 30,
-                  ),
-                  child: Text(
-                    'Congratulations on the new arrival!',
-                    style: TextStyle(color: Colors.black),
-                  ),
+                height: double.infinity,
+                width: double.infinity,
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 30,
+                        horizontal: 30,
+                      ),
+                      child: Text(
+                        'Congratulations on the \n new arrival!',
+                        style: TextStyle(color: Colors.black, fontSize: 25),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Image.asset('assets/images/auth_success_bg.png'),
+                  ],
                 ))));
   }
 }

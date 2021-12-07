@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:keleya/screens/login.dart';
 import 'package:keleya/utils/colors.dart';
 import 'package:keleya/widgets/button.dart';
 import 'package:keleya/widgets/header.dart';
 import 'package:get/get.dart';
 
 import 'auth_success.dart';
+import 'createaccount/signup.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const id = '/welcome';
@@ -12,12 +14,14 @@ class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
   /// On Login Button Click
-  /// Navigate to Auth Success Screen
+  /// Navigate to Login Screen
   void onLoginClick() {
-    Get.toNamed(AuthSuccess.id);
+    Get.toNamed(LoginScreen.id);
   }
 
-  void onSignupClick() {}
+  void onSignupClick() {
+    Get.toNamed(SignupScreen.id);
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:keleya/screens/auth_success.dart';
+import 'package:keleya/screens/createaccount/signup.dart';
+import 'package:keleya/screens/login.dart';
 import 'package:keleya/screens/welcome.dart';
 
 class AppRouter {
@@ -11,6 +13,12 @@ class AppRouter {
 
       case AuthSuccess.id:
         return MaterialPageRoute<dynamic>(builder: (_) => const AuthSuccess());
+
+      case LoginScreen.id:
+        return MaterialPageRoute<dynamic>(builder: (_) => const LoginScreen());
+
+      case SignupScreen.id:
+        return MaterialPageRoute<dynamic>(builder: (_) => const SignupScreen());
       default:
         return MaterialPageRoute<dynamic>(
             builder: (_) => const WelcomeScreen());
