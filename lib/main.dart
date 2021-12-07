@@ -28,7 +28,7 @@ class Keleya extends StatelessWidget {
     return GetMaterialApp(
       title: 'Keleya',
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
       theme: theme(),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

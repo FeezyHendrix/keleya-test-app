@@ -69,7 +69,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         const Text(
                           'Create an account',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 30),
                         const Input(
@@ -151,6 +152,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           height: 10,
                         ),
                         GestureDetector(
+                          onTap: gotoLogin,
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,

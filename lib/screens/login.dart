@@ -61,7 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Text(
                           'Sign in using your keleya \n account info',
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 60),
                         const Input(
