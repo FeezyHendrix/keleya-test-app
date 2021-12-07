@@ -17,8 +17,6 @@
 ```bash
   flutter pub get
 ```
-    
-
 App directory
 - lib
   - screens
@@ -35,6 +33,19 @@ Run on ios
 ```
 flutter run ios
 ```
+
+## Screenshots
+![Welcome Screen](/screenshots/welcome.png)
+
+![Login Screen](/screenshots/login.png)
+
+![Signup Screen](/screenshots/signup.png)
+
+![Name Screen](/screenshots/name.png)
+
+![Date Screen](/screenshots/date.png)
+
+![Success](/screenshots/success.png)
 
 
 A few resources to get you started if this is your first Flutter project:
