@@ -10,10 +10,13 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: const TextStyle(color: Colors.white, fontSize: 40),
-      textAlign: TextAlign.center,
+    return Padding(
+      padding: const EdgeInsets.all(25),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white, fontSize: 34),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
