@@ -16,6 +16,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = true;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   /// On Sign in Button Click
   /// Navigate to Auth Success Screen
@@ -65,14 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 60),
-                        const Input(
+                        Input(
                             hint: 'Email Address',
                             labelTitle: 'Email',
+                            controller: emailController,
                             inputType: TextInputType.emailAddress),
                         Input(
                             hint: 'Password',
                             labelTitle: 'Password',
                             show: showPassword,
+                            controller: passwordController,
                             onPasswordVisibiltyChange: () {
                               onPasswordVisibilityChanged();
                             },
