@@ -1,10 +1,41 @@
-# keleya
 
-A new Flutter project.
+# Keleya Mobile App
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+
+ 
+
+
+
+
+## Installation
+
+- Any Operating System (ie. MacOS X, Linux, Windows)
+- Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
+
+
+```bash
+  flutter pub get
+```
+    
+
+App directory
+- lib
+  - screens
+  - utils
+  - widgets
+
+Run on android
+```
+flutter run android
+```
+
+Run on ios
+
+```
+flutter run ios
+```
+
 
 A few resources to get you started if this is your first Flutter project:
 
