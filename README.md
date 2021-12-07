@@ -35,17 +35,16 @@ flutter run ios
 ```
 
 ## Screenshots
-![Welcome Screen](/screenshots/welcome.png)
+| 1 | 2|
+|------|-------|
+|<img src="./screenshots/welcome.png" width="300">|<img src="screenshots/login.png" width="300">|
+| 3 | 4|
+|------|-------|
+|<img src="./screenshots/signup.png" width="300">|<img src="screenshots/name.png" width="300">|
+| 5 | 6|
+|------|-------|
+|<img src="./screenshots/date.png" width="300">|<img src="screenshots/success.png" width="300">|
 
-![Login Screen](/screenshots/login.png)
-
-![Signup Screen](/screenshots/signup.png)
-
-![Name Screen](/screenshots/name.png)
-
-![Date Screen](/screenshots/date.png)
-
-![Success](/screenshots/success.png)
 
 
 A few resources to get you started if this is your first Flutter project:
