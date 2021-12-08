@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:keleya/helpers/snackbar.dart';
 import 'package:keleya/screens/auth_success.dart';
 import 'package:keleya/screens/createaccount/name_collection.dart';
 import 'package:keleya/screens/login.dart';
@@ -21,9 +22,38 @@ class _SignupScreenState extends State<SignupScreen> {
   bool hasAgreedToPrivaryPolicy = false;
   bool hasAgreedToTermsandCondition = false;
 
+  dynamic email;
+  dynamic password;
+  dynamic passwordConfirmation;
+
   /// On Sign in Button Click
   /// Navigate to Auth Success Screen
   void onSignupPressed() {
+    if (email == null || email.isEmpty) {
+      toastMessage(context, 'Email address is required');
+      return;
+    }
+
+    if (password == null || password.isEmpty) {
+      toastMessage(context, 'Password is required');
+      return;
+    }
+
+    if (passwordConfirmation == null || passwordConfirmation.isEmpty) {
+      toastMessage(context, 'Confirm password is required');
+      return;
+    }
+
+    if (hasAgreedToPrivaryPolicy == false) {
+      toastMessage(context, 'Privacy policy must be accepted');
+      return;
+    }
+
+    if (hasAgreedToTermsandCondition == false) {
+      toastMessage(context, 'Terms and condition must be accepted');
+      return;
+    }
+
     Get.toNamed(NameCollectionScreen.id);
   }
 
@@ -46,7 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Column(
             children: [
               const SizedBox(
-                height: 40,
+                height: 10,
               ),
               const Header(text: 'Welcome to \n Keleya Mama'),
               const SizedBox(
@@ -73,14 +103,37 @@ class _SignupScreenState extends State<SignupScreen> {
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 30),
-                        const Input(
+                        Input(
                             hint: 'Email Address',
                             labelTitle: 'Email',
+                            onChange: (value) {
+                              setState(() {
+                                email = value;
+                              });
+                            },
                             inputType: TextInputType.emailAddress),
                         Input(
                             hint: 'Password',
                             labelTitle: 'Password',
                             show: showPassword,
+                            onChange: (value) {
+                              setState(() {
+                                password = value;
+                              });
+                            },
+                            onPasswordVisibiltyChange: () {
+                              onPasswordVisibilityChanged();
+                            },
+                            inputType: TextInputType.visiblePassword),
+                        Input(
+                            hint: 'Confirm Password',
+                            labelTitle: 'Confirm password',
+                            show: showPassword,
+                            onChange: (value) {
+                              setState(() {
+                                passwordConfirmation = value;
+                              });
+                            },
                             onPasswordVisibiltyChange: () {
                               onPasswordVisibilityChanged();
                             },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:keleya/helpers/snackbar.dart';
 import 'package:keleya/screens/auth_success.dart';
 import 'package:keleya/utils/colors.dart';
 import 'package:keleya/widgets/button.dart';
@@ -15,8 +16,15 @@ class DateCollectionScreen extends StatefulWidget {
 }
 
 class _DateCollectionScreenState extends State<DateCollectionScreen> {
+  dynamic date;
+
   /// Go to date of birth collection page
   void gotoSuccessScreen() {
+    if (date == null || date.isEmpty) {
+      toastMessage(context, "Date of birth is required");
+      return;
+    }
+
     Get.toNamed(AuthSuccess.id);
   }
 
@@ -52,9 +60,14 @@ class _DateCollectionScreenState extends State<DateCollectionScreen> {
                 ],
               ),
             ),
-            const Input(
+            Input(
                 hint: 'Date of Birth',
                 labelTitle: 'Date of Birth',
+                onChange: (value) {
+                  setState(() {
+                    date = value;
+                  });
+                },
                 inputType: TextInputType.datetime),
             Button(text: 'Next Question', onPressed: gotoSuccessScreen)
           ],

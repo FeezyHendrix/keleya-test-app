@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:keleya/helpers/snackbar.dart';
 import 'package:keleya/screens/createaccount/date_collection.dart';
 import 'package:keleya/widgets/button.dart';
 import 'package:keleya/widgets/input.dart';
@@ -14,8 +15,14 @@ class NameCollectionScreen extends StatefulWidget {
 }
 
 class _NameCollectionScreenState extends State<NameCollectionScreen> {
+  dynamic name;
+
   /// Go to date of birth collection page
   void gotoDateCollectionScreen() {
+    if (name == null || name.isEmpty) {
+      toastMessage(context, "Name is required");
+      return;
+    }
     Get.toNamed(DateCollectionScreen.id);
   }
 
@@ -39,9 +46,14 @@ class _NameCollectionScreenState extends State<NameCollectionScreen> {
                     fontSize: 24,
                   )),
             ),
-            const Input(
+            Input(
                 hint: 'Name',
                 labelTitle: 'Name',
+                onChange: (value) {
+                  setState(() {
+                    name = value;
+                  });
+                },
                 inputType: TextInputType.text),
             Button(text: 'Next Question', onPressed: gotoDateCollectionScreen)
           ],
