@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:keleya/helpers/snackbar.dart';
 import 'package:keleya/screens/auth_success.dart';
 import 'package:keleya/utils/colors.dart';
 import 'package:keleya/widgets/button.dart';
@@ -16,12 +17,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = true;
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  dynamic email;
+  dynamic password;
 
   /// On Sign in Button Click
   /// Navigate to Auth Success Screen
   void onSignInPressed() {
+    if (email == null || email.isEmpty) {
+      toastMessage(context, "Email Address is required");
+      return;
+    }
+
+    if (password == null || password.isEmpty) {
+      toastMessage(context, 'Password is required');
+      return;
+    }
+
     Get.toNamed(AuthSuccess.id);
   }
 
@@ -70,13 +81,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         Input(
                             hint: 'Email Address',
                             labelTitle: 'Email',
-                            controller: emailController,
+                            onChange: (value) {
+                              setState(() {
+                                email = value;
+                              });
+                            },
                             inputType: TextInputType.emailAddress),
                         Input(
                             hint: 'Password',
                             labelTitle: 'Password',
                             show: showPassword,
-                            controller: passwordController,
+                            onChange: (value) {
+                              setState(() {
+                                password = value;
+                              });
+                            },
                             onPasswordVisibiltyChange: () {
                               onPasswordVisibilityChanged();
                             },

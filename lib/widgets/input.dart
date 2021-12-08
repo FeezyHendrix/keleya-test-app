@@ -8,6 +8,8 @@ class Input extends StatelessWidget {
   final bool? show;
   final VoidCallback? onPasswordVisibiltyChange;
   final TextEditingController? controller;
+  final Function? validator;
+  final Function? onChange;
 
   const Input({
     Key? key,
@@ -17,6 +19,8 @@ class Input extends StatelessWidget {
     this.show,
     this.controller,
     this.onPasswordVisibiltyChange,
+    this.validator,
+    this.onChange,
   }) : super(key: key);
 
   @override
@@ -25,6 +29,8 @@ class Input extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
       child: TextFormField(
         keyboardType: inputType,
+        validator: (dynamic value) => validator!(value),
+        onChanged: (value) => onChange!(value),
         obscureText: show ?? false,
         style: const TextStyle(
           fontSize: 15,
